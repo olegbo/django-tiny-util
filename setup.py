@@ -1,13 +1,13 @@
 from setuptools import setup
 
 setup(name='django-tiny-util',
-      version='0.2.2',
+      version='0.2.4',
       description='Useful Django utils',
       url='https://github.com/olegbo/django-tiny-util',
       author='Oleg Bogumirski',
       author_email='reg@olegb.ru',
       license='MIT',
-      packages=['djangotinyutil'],
+      packages=['django_tiny_util'],
       install_requires=[
           'django',
       ],
