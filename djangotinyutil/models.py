@@ -1,10 +1,13 @@
 """
 Copyright (c) 2020 Oleg Bogumirski <reg@olegb.ru>
 """
+from typing import Type
+
+from django.db.models import Model
 
 
-def get_or_none(classmodel, **kwargs):
+def get_or_none(model: Type[Model], **kwargs):
     try:
-        return classmodel.objects.get(**kwargs)
-    except classmodel.DoesNotExist:
+        return model.objects.get(**kwargs)
+    except model.DoesNotExist:
         return None
