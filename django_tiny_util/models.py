@@ -13,7 +13,7 @@ def get_or_none(cls: type(Model), **kwargs) -> Optional[Model]:
         return None
 
 
-def update_fields(model: Model, **kwargs) -> Model:
+def update_fields(model: Model, **kwargs):
     if kwargs.get('filter_fields'):
         fields = [x for x, y in kwargs.items() if x in [z.name for z in model._meta.get_fields(include_hidden=True)]]
     else:
@@ -23,4 +23,3 @@ def update_fields(model: Model, **kwargs) -> Model:
         setattr(model, key, kwargs[fields])
 
     model.save(update_fields=fields)
-    return model
