@@ -14,12 +14,9 @@ def get_or_none(cls: type(Model), **kwargs) -> Optional[Model]:
 
 
 def update_fields(model: Model, **kwargs):
-    if kwargs.get('filter_fields'):
-        fields = [x for x, y in kwargs.items() if x in [z.name for z in model._meta.get_fields(include_hidden=True)]]
-    else:
-        fields = list(kwargs.keys())
+    fields = list(kwargs.keys())
 
     for key in fields:
-        setattr(model, key, kwargs[fields])
+        setattr(model, key, kwargs[key])
 
     model.save(update_fields=fields)
