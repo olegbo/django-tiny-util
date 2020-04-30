@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='django-tiny-util',
-      version='0.3.0',
+      version='0.3.1',
       description='Useful Django utils',
       url='https://github.com/olegbo/django-tiny-util',
       author='Oleg Bogumirski',
