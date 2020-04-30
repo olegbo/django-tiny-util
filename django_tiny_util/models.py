@@ -20,3 +20,11 @@ def update_fields(model: Model, **kwargs):
         setattr(model, key, kwargs[key])
 
     model.save(update_fields=fields)
+
+
+def get_or_create_or_update(cls: type(Model), unique_fields: dict, default_or_update_fields: dict) -> (Model, bool):
+    res, created = cls.objects.get_or_create(**unique_fields, defaults=default_or_update_fields)
+    if not created:
+        update_fields(res, **default_or_update_fields)
+
+    return res, created
